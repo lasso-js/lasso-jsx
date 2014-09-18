@@ -1,38 +1,38 @@
 {
-  "name": "optimizer-jsx",
-  "version": "1.0.0-beta",
-  "description": "RaptorJS Optimizer plugin to compile Facebook React JSX into javascript",
-  "main": "./optimizer-jsx-plugin.js",
-  "scripts": {
-    "test": "node_modules/.bin/mocha --ui bdd --reporter spec ./test && node_modules/.bin/jshint *.js"
-  },
-  "keywords": [
-    "raptor-optimizer",
-    "raptor-optimizer-plugin",
-    "reactjs"
-  ],
-  "author": "Vinod L <vinuquest@gmail.com>",
-  "contributors": [
-    "Vinod L <vinuquest@gmail.com>"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/raptorjs3/optimizer-jsx.git"
-  },
-  "license": "MIT",
-  "dependencies": {
-    "raptor-logging": "^0.2.6-beta",
-    "raptor-util": "^0.2.7-beta",
-    "react-dom-pragma": "^1.0.0",
-    "react-tools": "^0.10.0"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
-  "devDependencies": {
-    "chai": "^1.9.1",
-    "jshint": "^2.5.5",
-    "mocha": "^1.21.4",
-    "raptor-optimizer": "^1.0.11-beta"
-  }
+    "name": "optimizer-jsx",
+    "description": "RaptorJS Optimizer plugin to compile Facebook React JSX into javascript",
+    "main": "./optimizer-jsx-plugin.js",
+    "scripts": {
+        "test": "node_modules/.bin/mocha --ui bdd --reporter spec ./test && node_modules/.bin/jshint *.js"
+    },
+    "keywords": [
+        "raptor-optimizer",
+        "raptor-optimizer-plugin",
+        "reactjs"
+    ],
+    "author": "Vinod L <vinuquest@gmail.com>",
+    "contributors": [
+        "Vinod L <vinuquest@gmail.com>"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/raptorjs3/optimizer-jsx.git"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "raptor-logging": "^0.2.6-beta",
+        "raptor-util": "^0.2.7-beta",
+        "react-dom-pragma": "^1.0.0",
+        "react-tools": "^0.10.0"
+    },
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/"
+    },
+    "devDependencies": {
+        "chai": "^1.9.1",
+        "jshint": "^2.5.5",
+        "mocha": "^1.21.4",
+        "raptor-optimizer": "^1.0.11-beta"
+    },
+    "version": "1.0.1-beta"
 }
