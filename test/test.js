@@ -1,76 +1,49 @@
 'use strict';
-
 var chai = require('chai');
 chai.config.includeStack = true;
 require('chai').should();
 var expect = require('chai').expect;
-var extend = require('raptor-util/extend');
 var nodePath = require('path');
+var fs = require('fs');
 
-function Dependency(dirname) {
-    this.__dirname = dirname;
-}
+var jsxPlugin = require('../'); // Load this module just to make sure it works
+var raptorOptimizer = require('raptor-optimizer');
 
-Dependency.prototype = {
-    resolvePath: function(path) {
-    	console.log('resolvePath - ' + nodePath.resolve(this.__dirname, path));
-        return nodePath.resolve(this.__dirname, path);
-    }
-};
+describe('optimizer-jsx' , function() {
 
-function createDependency(properties, jsxOptions) {
-    var dependencyJsx = require('../lib/dependency-react-jsx').create(jsxOptions);
 
-    var dirname = properties.dirname;
+    it('should compile a simple jsx file', function(done) {
+        var pageOptimizer = raptorOptimizer.create({
+                fileWriter: {
+                    fingerprintsEnabled: false,
+                    outputDir: nodePath.join(__dirname, 'static')
+                },
+                bundlingEnabled: true,
+                plugins: [
+                    {
+                        plugin: jsxPlugin,
+                        config: {
 
-    if (!dirname) {
-        dirname = nodePath.join(__dirname, 'fixtures');
-    }
+                        }
+                    }
+                ]
+            });
 
-    var d = new Dependency(dirname);
-    extend(d, dependencyJsx || {});
-    extend(d, properties || {});
-    d.init();
-    
-    return d;
+        pageOptimizer.optimizePage({
+                name: 'testPage',
+                dependencies: [
+                    nodePath.join(__dirname, 'fixtures/simple.jsx')
+                ]
+            },
+            function(err, optimizedPage) {
+                if (err) {
+                    return done(err);
+                }
 
-}
-describe('optimizer-jsx tests' , function() {
-
-    beforeEach(function(done) {
-        for (var k in require.cache) {
-            if (require.cache.hasOwnProperty(k)) {
-                delete require.cache[k];
-            }
-        }
-        done();
+                var output = fs.readFileSync(nodePath.join(__dirname, 'static/testPage.js'), 'utf8');
+                expect(output).to.equal('/** @jsx React.DOM */\nReact.renderComponent(React.DOM.h1(null, "simple"), document.body);');
+                done();
+            });
     });
 
-    it('should compile a simple js file', function(done) {
-        var d = createDependency({
-            path: 'simple.jsx'
-        });
-
-        d.read({}, function(err, js) {
-            if (err) {
-                return done(err);
-            }
-            expect(js).to.equal('/** @jsx React.DOM */\nReact.renderComponent(React.DOM.h1(null, "simple"), document.body);');
-            done();
-        });
-    });
-
-	it('should contain @jsx comment in the compiled js file', function(done) {
-        var d = createDependency({
-            path: 'simple.jsx'
-        });
-
-        d.read({}, function(err, js) {
-            if (err) {
-                return done(err);
-            }
-            expect(js).to.contain('/** @jsx');
-            done();
-        });
-    });
 });
