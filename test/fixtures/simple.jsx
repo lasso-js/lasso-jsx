@@ -1,0 +1,1 @@
+React.renderComponent(<h1>simple</h1>, document.body);
