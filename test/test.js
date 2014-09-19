@@ -7,13 +7,13 @@ var nodePath = require('path');
 var fs = require('fs');
 
 var jsxPlugin = require('../'); // Load this module just to make sure it works
-var raptorOptimizer = require('raptor-optimizer');
+var optimizer = require('optimizer');
 
 describe('optimizer-jsx' , function() {
 
 
     it('should compile a simple jsx file', function(done) {
-        var pageOptimizer = raptorOptimizer.create({
+        var pageOptimizer = optimizer.create({
                 fileWriter: {
                     fingerprintsEnabled: false,
                     outputDir: nodePath.join(__dirname, 'static')

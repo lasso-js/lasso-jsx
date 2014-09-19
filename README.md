@@ -1,7 +1,7 @@
 optimizer-jsx
 ==============
 
-This Node.js module is a plugin for the [RaptorJS Optimizer](https://github.com/raptorjs3/raptor-optimizer), that provides support to precompile [Facebook React](http://facebook.github.io/react/) JSX files with the `.jsx` extension into JavaScript.
+This Node.js module is a plugin for the [RaptorJS Optimizer](https://github.com/raptorjs3/optimizer), that provides support to precompile [Facebook React](http://facebook.github.io/react/) JSX files with the `.jsx` extension into JavaScript.
 
 ## Install
 
@@ -20,7 +20,7 @@ In your dependencies list in `optimizer.json`, just go ahead and all your source
     ...
 ]
 ```
-And add `optimizer-jsx` as the required plugin in `raptor-optimizer-config.json`
+And add `optimizer-jsx` as the required plugin in `optimizer-config.json`
 
 ```js
 {
