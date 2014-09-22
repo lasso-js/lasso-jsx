@@ -20,8 +20,8 @@
     },
     "license": "MIT",
     "dependencies": {
-        "raptor-logging": "^0.2.6",
-        "raptor-util": "^0.2.7",
+        "raptor-logging": "^1.0.0",
+        "raptor-util": "^1.0.0",
         "react-dom-pragma": "^1.0.0",
         "react-tools": "^0.10.0"
     },
