@@ -20,8 +20,8 @@
     },
     "license": "MIT",
     "dependencies": {
-        "raptor-logging": "^0.2.6-beta",
-        "raptor-util": "^0.2.7-beta",
+        "raptor-logging": "^0.2.6",
+        "raptor-util": "^0.2.7",
         "react-dom-pragma": "^1.0.0",
         "react-tools": "^0.10.0"
     },
@@ -32,7 +32,7 @@
         "chai": "^1.9.1",
         "jshint": "^2.5.5",
         "mocha": "^1.21.4",
-        "optimizer": "^1.0.11-beta"
+        "optimizer": "^1.0.11"
     },
     "version": "1.1.0"
 }
