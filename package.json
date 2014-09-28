@@ -1,38 +1,38 @@
 {
-  "name": "optimizer-jsx",
-  "description": "RaptorJS Optimizer plugin to compile Facebook React JSX into javascript",
-  "main": "./optimizer-jsx-plugin.js",
-  "scripts": {
-    "test": "node_modules/.bin/mocha --ui bdd --reporter spec ./test && node_modules/.bin/jshint *.js"
-  },
-  "keywords": [
-    "optimizer",
-    "optimizer-plugin",
-    "reactjs"
-  ],
-  "author": "Vinod L <vinuquest@gmail.com>",
-  "contributors": [
-    "Vinod L <vinuquest@gmail.com>"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/raptorjs3/optimizer-jsx.git"
-  },
-  "license": "MIT",
-  "dependencies": {
-    "raptor-logging": "^1.0.1",
-    "raptor-util": "^1.0.0",
-    "react-dom-pragma": "^1.0.0",
-    "react-tools": "^0.10.0"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
-  "devDependencies": {
-    "chai": "^1.9.1",
-    "jshint": "^2.5.5",
-    "mocha": "^1.21.4",
-    "optimizer": "^1.0.11"
-  },
-  "version": "1.1.2"
+    "name": "optimizer-jsx",
+    "description": "RaptorJS Optimizer plugin to compile Facebook React JSX into javascript",
+    "main": "./optimizer-jsx-plugin.js",
+    "scripts": {
+        "test": "node_modules/.bin/mocha --ui bdd --reporter spec ./test && node_modules/.bin/jshint *.js"
+    },
+    "keywords": [
+        "optimizer",
+        "optimizer-plugin",
+        "reactjs"
+    ],
+    "author": "Vinod L <vinuquest@gmail.com>",
+    "contributors": [
+        "Vinod L <vinuquest@gmail.com>"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/raptorjs3/optimizer-jsx.git"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "raptor-logging": "^1.0.1",
+        "raptor-util": "^1.0.0",
+        "react-dom-pragma": "^1.0.0",
+        "react-tools": "^0.10.0"
+    },
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/"
+    },
+    "devDependencies": {
+        "chai": "^1.9.1",
+        "jshint": "^2.5.5",
+        "mocha": "^1.21.4",
+        "optimizer": "^1.0.11"
+    },
+    "version": "1.1.3"
 }
