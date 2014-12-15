@@ -32,4 +32,23 @@ module.exports = function(pageOptimizer, config) {
                 return this.path;
             }
         });
+
+    pageOptimizer.dependencies.registerRequireExtension(
+        'jsx', {
+            read: function(path, optimizerContext, callback) {
+                var transformedCode;
+
+                fs.readFile(path, {encoding: 'utf8'}, function(err, src) {
+                    if (err) {
+                        return callback(err);
+                    }
+                    transformedCode = react.transform(reactDomPragma(src), {});
+                    callback(null, transformedCode);
+                });
+            },
+
+            getLastModified: function(path, optimizerContext, callback) {
+                optimizerContext.getFileLastModified(path, callback);
+            }
+        });
 };
