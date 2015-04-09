@@ -33,8 +33,8 @@ function _compileFile(path, callback) {
 		callback(null, reactTools.transform(src, {}));
 	});
 }
-module.exports = function(pageOptimizer, config) {
-	pageOptimizer.dependencies.registerJavaScriptType(
+module.exports = function(lasso, config) {
+	lasso.dependencies.registerJavaScriptType(
 		'jsx', {
 			properties: {
 				'path': 'string'
@@ -54,7 +54,7 @@ module.exports = function(pageOptimizer, config) {
 			}
 		});
 
-	pageOptimizer.dependencies.registerRequireExtension(
+	lasso.dependencies.registerRequireExtension(
 		'jsx', {
 			read: function(path, lassoContext, callback) {
 				_compileFile(path, callback);

@@ -13,7 +13,7 @@ describe('lasso-jsx', function() {
 
 
 	it('should compile a simple jsx file', function(done) {
-		var pageOptimizer = lasso.create({
+		var myLasso = lasso.create({
 			fileWriter: {
 				fingerprintsEnabled: false,
 				outputDir: nodePath.join(__dirname, 'static')
@@ -29,7 +29,7 @@ describe('lasso-jsx', function() {
                 ]
 		});
 
-		pageOptimizer.optimizePage({
+		myLasso.optimizePage({
 				name: 'testPage',
 				dependencies: [
                     nodePath.join(__dirname, 'fixtures/simple.jsx')
