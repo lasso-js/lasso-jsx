@@ -1,6 +1,6 @@
 {
     "name": "lasso-jsx",
-    "description": "RaptorJS Optimizer plugin to compile Facebook React JSX into javascript",
+    "description": "Lasso.js plugin to compile Facebook React JSX into javascript",
     "main": "./lasso-jsx-plugin.js",
     "scripts": {
         "test": "node_modules/.bin/mocha --ui bdd --reporter spec ./test && node_modules/.bin/jshint *.js"
