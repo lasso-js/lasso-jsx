@@ -35,7 +35,7 @@ describe('lasso-jsx', function() {
                     nodePath.join(__dirname, 'fixtures/simple.jsx')
                 ]
 			},
-			function(err, optimizedPage) {
+			function(err, lassoPageResult) {
 				if (err) {
 					return done(err);
 				}
