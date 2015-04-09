@@ -1,12 +1,12 @@
-optimizer-jsx
+lasso-jsx
 ==============
 
-This Node.js module is a plugin for the [RaptorJS Optimizer](https://github.com/raptorjs/optimizer), that provides support to precompile [Facebook React](http://facebook.github.io/react/) JSX files with the `.jsx` extension into JavaScript.
+This Node.js module is a plugin for the [RaptorJS Optimizer](https://github.com/raptorjs/lasso), that provides support to precompile [Facebook React](http://facebook.github.io/react/) JSX files with the `.jsx` extension into JavaScript.
 
 ## Install
 
 ```sh
-$ npm install --save optimizer-jsx
+$ npm install --save lasso-jsx
 ```
 
 
@@ -20,12 +20,12 @@ In your dependencies list in `browser.json`, just go ahead and all your source .
     ...
 ]
 ```
-And add `optimizer-jsx` as the required plugin in `optimizer-config.json`
+And add `lasso-jsx` as the required plugin in `lasso-config.json`
 
 ```js
 {
 	"plugins": [
-	    "optimizer-jsx"
+	    "lasso-jsx"
 	    ...
 	],
 	...

@@ -14,10 +14,10 @@ try {
 
     if ((reactToolsMajor !== reactMajor) || (reactToolsMinor !== reactMinor)) {
         var logger = require('raptor-logging').logger(module);
-        logger.warn('optimizer-jsx is using react-tools ' + reactToolsVersion + ' to compile JSX but react ' + reactVersion + ' is installed.\n' +
+        logger.warn('lasso-jsx is using react-tools ' + reactToolsVersion + ' to compile JSX but react ' + reactVersion + ' is installed.\n' +
             'This version mismatch may cause incompatibilities. Consider installing react-tools in your project and ' +
-            'then uninstall and reinstall optimizer-jsx so that your version of react-tools will be used.\n' +
-            'If you find any problems please open an issue at https://github.com/raptorjs/optimizer-jsx/issues');
+            'then uninstall and reinstall lasso-jsx so that your version of react-tools will be used.\n' +
+            'If you find any problems please open an issue at https://github.com/raptorjs/lasso-jsx/issues');
     }
 } catch(e) {
     // React is not a required module to do the build so ignore this error
@@ -39,7 +39,7 @@ module.exports = function(pageOptimizer, config) {
 			properties: {
 				'path': 'string'
 			},
-			init: function(optimizerContext, callback) {
+			init: function(lassoContext, callback) {
 				if (!this.path) {
 					return callback(new Error('"path" is required'));
 				}
@@ -56,12 +56,12 @@ module.exports = function(pageOptimizer, config) {
 
 	pageOptimizer.dependencies.registerRequireExtension(
 		'jsx', {
-			read: function(path, optimizerContext, callback) {
+			read: function(path, lassoContext, callback) {
 				_compileFile(path, callback);
 			},
 
-			getLastModified: function(path, optimizerContext, callback) {
-				optimizerContext.getFileLastModified(path, callback);
+			getLastModified: function(path, lassoContext, callback) {
+				lassoContext.getFileLastModified(path, callback);
 			}
 		});
 };
