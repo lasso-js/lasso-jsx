@@ -1,7 +1,7 @@
 lasso-jsx
 ==============
 
-This Node.js module is a plugin for the [Lasso.js](https://github.com/raptorjs/lasso), that provides support to precompile [Facebook React](http://facebook.github.io/react/) JSX files with the `.jsx` extension into JavaScript.
+This Node.js module is a plugin for the [Lasso.js](https://github.com/lasso-js/lasso), that provides support to precompile [Facebook React](http://facebook.github.io/react/) JSX files with the `.jsx` extension into JavaScript.
 
 ## Install
 
