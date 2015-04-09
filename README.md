@@ -12,7 +12,7 @@ $ npm install --save optimizer-jsx
 
 ## Usage
 
-In your dependencies list in `optimizer.json`, just go ahead and all your source .jsx files
+In your dependencies list in `browser.json`, just go ahead and all your source .jsx files
 ```js
 [
     "main.jsx",
