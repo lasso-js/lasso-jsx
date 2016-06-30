@@ -1,37 +1,37 @@
 {
-    "name": "lasso-jsx",
-    "description": "Lasso.js plugin to compile Facebook React JSX into javascript",
-    "main": "./lasso-jsx-plugin.js",
-    "scripts": {
-        "test": "node_modules/.bin/mocha --ui bdd --reporter spec ./test && node_modules/.bin/jshint *.js"
-    },
-    "keywords": [
-        "lasso",
-        "lasso-plugin",
-        "reactjs"
-    ],
-    "author": "Vinod L <vinuquest@gmail.com>",
-    "contributors": [
-        "Vinod L <vinuquest@gmail.com>"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/lasso-js/lasso-jsx.git"
-    },
-    "license": "MIT",
-    "dependencies": {
-        "raptor-logging": "^1.0.5",
-        "raptor-util": "^1.0.9",
-        "react-tools": "^0.13.0"
-    },
-    "publishConfig": {
-        "registry": "https://registry.npmjs.org/"
-    },
-    "devDependencies": {
-        "chai": "^1.9.1",
-        "jshint": "^2.5.5",
-        "mocha": "^1.21.4",
-        "lasso": "^1.8.4"
-    },
-    "version": "1.1.10"
+  "name": "lasso-jsx",
+  "description": "Lasso.js plugin to compile Facebook React JSX into javascript",
+  "main": "./lasso-jsx-plugin.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha --ui bdd --reporter spec ./test && node_modules/.bin/jshint *.js"
+  },
+  "keywords": [
+    "lasso",
+    "lasso-plugin",
+    "reactjs"
+  ],
+  "author": "Vinod L <vinuquest@gmail.com>",
+  "contributors": [
+    "Vinod L <vinuquest@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lasso-js/lasso-jsx.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.10.4",
+    "raptor-logging": "^1.0.5",
+    "raptor-util": "^1.0.9"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "jshint": "^2.5.5",
+    "mocha": "^1.21.4",
+    "lasso": "^1.8.4"
+  },
+  "version": "1.1.10"
 }
