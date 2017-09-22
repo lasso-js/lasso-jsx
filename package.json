@@ -31,7 +31,7 @@
     "babel-preset-react": "^6.11.1",
     "chai": "^1.9.1",
     "jshint": "^2.5.5",
-    "lasso": "^1.8.4",
+    "lasso": "^2.11.16",
     "mocha": "^1.21.4"
   },
   "version": "2.0.0"

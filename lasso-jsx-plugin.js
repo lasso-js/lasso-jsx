@@ -1,43 +1,56 @@
-var babelCore = require("babel-core");
+'use strict';
+
+const babelCore = require('babel-core');
 
 function _compileFile(path, callback) {
-    babelCore.transformFile(path, {}, function(err, result) {
-        if (err) {
-            return callback(err);
-        }
-
-        callback(null, result.code);
-    });
+  babelCore.transformFile(path, {}, function(err, result) {
+    if (err) {
+      return callback(err);
+    }
+    callback(null, result.code);
+  });
 }
+
 module.exports = function(lasso, config) {
-	lasso.dependencies.registerJavaScriptType(
-		'jsx', {
-			properties: {
-				'path': 'string'
-			},
-			init: function(lassoContext, callback) {
-				if (!this.path) {
-					return callback(new Error('"path" is required'));
-				}
-				this.path = this.resolvePath(this.path);
-				callback();
-			},
-			read: function(context, callback) {
-                _compileFile(this.path, callback);
-			},
-			getSourceFile: function() {
-				return this.path;
-			}
-		});
+  lasso.dependencies.registerJavaScriptType('jsx', {
+    properties: {
+      'path': 'string'
+    },
+    init: function(lassoContext, callback) {
+      if (!this.path) {
+        var pathError = new Error('"path" is required');
+        if (callback) return callback(pathError);
+        throw pathError;
+      }
 
-	lasso.dependencies.registerRequireExtension(
-		'jsx', {
-			read: function(path, lassoContext, callback) {
-				_compileFile(path, callback);
-			},
+      this.path = this.resolvePath(this.path);
+      if (callback) callback();
+    },
+    read: function(context, callback) {
+      return new Promise((resolve, reject) => {
+        callback = callback || function(err, res) {
+          return err ? reject(err) : resolve(res);
+        };
+        _compileFile(this.path, callback);
+      });
+    },
+    getSourceFile: function() {
+      return this.path;
+    }
+  });
 
-			getLastModified: function(path, lassoContext, callback) {
-				lassoContext.getFileLastModified(path, callback);
-			}
-		});
+  lasso.dependencies.registerRequireExtension('jsx', {
+    read: function(path, lassoContext, callback) {
+      return new Promise((resolve, reject) => {
+        callback = callback || function(err, res) {
+          return err ? reject(err) : resolve(res);
+        };
+        _compileFile(path, callback);
+      });
+    },
+
+    getLastModified: function(path, lassoContext, callback) {
+      return lassoContext.getFileLastModified(path, callback);
+    }
+  });
 };
