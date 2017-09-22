@@ -11,39 +11,31 @@ var lasso = require('lasso');
 
 describe('lasso-jsx', function() {
 
-
-    it('should compile a simple jsx file', function(done) {
-        var myLasso = lasso.create({
-            fileWriter: {
-                fingerprintsEnabled: false,
-                outputDir: nodePath.join(__dirname, 'static')
-            },
-            bundlingEnabled: true,
-            plugins: [{
-                plugin: jsxPlugin,
-                config: {}
-            }]
-        });
-
-        myLasso.lassoPage({
-                name: 'testPage',
-                dependencies: [
-                    nodePath.join(__dirname, 'fixtures/simple.jsx')
-                ]
-            },
-            function(err, lassoPageResult) {
-                if (err) {
-                    return done(err);
-                }
-
-                var output = fs.readFileSync(nodePath.join(__dirname, 'static/testPage.js'), {
-                    encoding: 'utf8'
-                });
-                expect(output).to.contain(
-                    'React.createElement'
-                );
-                done();
-            });
+  it('should compile a simple jsx file', function() {
+    var myLasso = lasso.create({
+      fileWriter: {
+        fingerprintsEnabled: false,
+        outputDir: nodePath.join(__dirname, 'static')
+      },
+      bundlingEnabled: true,
+      plugins: [{
+        plugin: jsxPlugin,
+        config: {}
+      }]
     });
 
+    return myLasso.lassoPage({
+      name: 'testPage',
+      dependencies: [
+        nodePath.join(__dirname, 'fixtures/simple.jsx')
+      ]
+    }).then((lassoPageResult) => {
+      var output = fs.readFileSync(nodePath.join(__dirname, 'static/testPage.js'), {
+        encoding: 'utf8'
+      });
+      expect(output).to.contain(
+        'React.createElement'
+      );
+    });
+  });
 });

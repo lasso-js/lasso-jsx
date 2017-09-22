@@ -1,6 +1,6 @@
 {
     "predef": [
-        
+
     ],
 
     "globals": {
@@ -9,6 +9,7 @@
     },
 
     "node" : true,
+    "esversion": 6,
     "es5" : false,
     "browser" : true,
     "boss" : false,
@@ -35,7 +36,7 @@
     "latedef": true,
     "unused": "vars",
     "strict": false,
-    
+
     /* Relaxing options: */
     "eqnull": true
 }
